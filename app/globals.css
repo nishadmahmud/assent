@@ -1,0 +1,176 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #0B132B; /* Sovereign Obsidian Navy */
+  --accent: #C5A880; /* Architectural Champagne Gold */
+  --accent-light: #F6EFE6; /* Soft Champagne Glow */
+  --accent-dark: #9C7A3C; /* Rich Burnished Bronze */
+  --bg: #FFFFFF;
+  --bg-alt: #F8F9FA;
+  --bg-dark: #0B132B;
+  --text: #1E293B;
+  --text-muted: #64748B;
+  --text-light: #94A3B8;
+  --border: #E2E8F0;
+  --shadow: 0 4px 6px -1px rgba(11, 19, 43, 0.06), 0 2px 4px -2px rgba(11, 19, 43, 0.04);
+  --shadow-lg: 0 12px 24px -4px rgba(11, 19, 43, 0.12), 0 4px 6px -2px rgba(11, 19, 43, 0.05);
+  --radius: 12px;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-dark: var(--accent-dark);
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-bg-dark: var(--bg-dark);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-light: var(--text-light);
+  --color-border: var(--border);
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-playfair);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-inter), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair), Georgia, serif;
+    color: var(--primary);
+  }
+}
+
+@layer utilities {
+  /* Utility classes */
+  .section-padding {
+    padding: 4.5rem 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding: 6.5rem 2rem;
+    }
+  }
+
+  .container-custom {
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@layer components {
+  /* Button styles */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.85rem 2.25rem;
+    background: linear-gradient(135deg, #D4AF37 0%, #C5A880 50%, #B89047 100%);
+    color: #0B132B;
+    font-weight: 700;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 14px rgba(197, 168, 128, 0.35);
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #E2C265 0%, #D4AF37 50%, #C5A880 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(197, 168, 128, 0.45);
+    color: #050A18;
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 2.25rem;
+    background: transparent;
+    color: var(--primary);
+    font-weight: 600;
+    border: 1.5px solid var(--accent);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-size: 0.95rem;
+  }
+
+  .btn-outline:hover {
+    background: var(--accent);
+    color: #0B132B;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(197, 168, 128, 0.3);
+  }
+
+  /* Gold line accent */
+  .gold-line {
+    width: 64px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent) 0%, rgba(197, 168, 128, 0.4) 100%);
+    border-radius: 2px;
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Reveal Animations */
+  .reveal {
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .reveal-up {
+    transform: translateY(40px);
+  }
+  
+  .reveal-left {
+    transform: translateX(-40px);
+  }
+  
+  .reveal-right {
+    transform: translateX(40px);
+  }
+  
+  .reveal.active {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  /* Simple Parallax for Backgrounds */
+  .bg-parallax {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @media (min-width: 768px) {
+    .bg-parallax {
+      background-attachment: fixed;
+    }
+  }
+}
