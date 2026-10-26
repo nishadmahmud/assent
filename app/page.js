@@ -192,11 +192,6 @@ export default function Home() {
       <section className="py-20 bg-[#0B132B] text-white text-center border-t border-white/10 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-accent/5 via-transparent to-accent/5 pointer-events-none" />
         <div className="container-custom relative z-10 px-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-accent/20 border border-accent/40 mb-5">
-            <span className="text-accent text-xs font-semibold uppercase tracking-wider">
-              Assent Real Estate & Property Management Ltd.
-            </span>
-          </div>
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white" style={{ fontFamily: "var(--font-playfair)" }}>
             Ready to Experience Refined Modern Living?
           </h2>

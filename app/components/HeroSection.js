@@ -38,15 +38,6 @@ export default function HeroSection({
 
       {/* Main Hero Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto py-16">
-        {!compact && (
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-white/10 border border-accent/40 rounded-full mb-8 backdrop-blur-md shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-white/90 text-xs font-semibold tracking-widest uppercase">
-              Assent Real Estate & Property Management Ltd.
-            </span>
-          </div>
-        )}
-
         <h1
           className={`font-bold text-white leading-tight mb-6 tracking-tight ${
             compact ? "text-3xl md:text-5xl" : "text-4xl md:text-6xl lg:text-7xl"
