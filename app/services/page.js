@@ -96,20 +96,23 @@ export default function ServicesPage() {
             {services.map((service, index) => (
               <div 
                 key={index} 
-                className={`flex flex-col md:flex-row items-center gap-10 md:gap-16 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
+                className={`flex flex-col md:flex-row items-center gap-10 md:gap-16 reveal reveal-up ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="flex-1 flex justify-center items-center bg-[#F8F9FA] p-12 md:p-16 rounded-2xl w-full border border-border shadow-sm min-h-[260px]">
-                  {service.icon}
+                <div className="flex-1 flex justify-center items-center bg-[#F8F9FA]/80 p-12 md:p-16 rounded-2xl w-full border border-border shadow-sm min-h-[260px] group hover:border-accent/40 hover:bg-white transition-all duration-300">
+                  <div className="transition-transform duration-500 group-hover:scale-110">
+                    {service.icon}
+                  </div>
                 </div>
                 <div className="flex-1">
-                  <span className="text-accent text-xs font-bold uppercase tracking-wider block mb-1">
+                  <span className="text-accent text-[11px] font-bold uppercase tracking-[0.2em] block mb-1">
                     Service 0{index + 1}
                   </span>
                   <h3 className="text-2xl md:text-3xl font-bold text-[#0B132B] mb-4" style={{ fontFamily: "var(--font-playfair)" }}>
                     {service.title}
                   </h3>
-                  <div className="gold-line mb-6"></div>
-                  <p className="text-text-muted text-base md:text-lg leading-relaxed">
+                  <div className="gold-line mb-6" />
+                  <p className="text-text-muted text-base md:text-lg leading-relaxed font-light">
                     {service.description}
                   </p>
                 </div>
@@ -120,7 +123,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Why Assent */}
-      <section className="section-padding bg-[#F8F9FA] border-t border-border">
+      <section className="section-padding bg-[#F8F9FA]/80 border-t border-border">
         <div className="container-custom">
           <div className="reveal reveal-up">
             <SectionHeading 
@@ -135,13 +138,16 @@ export default function ServicesPage() {
             {features.map((feature, index) => (
               <div 
                 key={index} 
-                className="bg-white p-8 rounded-xl shadow-sm card-hover border border-border flex flex-col items-start transition-all duration-300"
+                className="bg-white p-8 rounded-2xl shadow-sm card-hover border border-border/80 flex flex-col items-start transition-all duration-300 reveal reveal-up"
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="w-10 h-10 rounded-lg bg-accent-light text-[#9C7A3C] font-bold flex items-center justify-center mb-4 text-sm">
+                <div className="w-10 h-10 rounded-xl bg-accent-light text-[#9C7A3C] font-bold flex items-center justify-center mb-5 text-xs shadow-sm">
                   0{index + 1}
                 </div>
-                <h4 className="text-lg font-bold text-[#0B132B] mb-2">{feature.title}</h4>
-                <p className="text-text-muted text-sm leading-relaxed">{feature.description}</p>
+                <h4 className="text-lg font-bold text-[#0B132B] mb-2" style={{ fontFamily: "var(--font-playfair)" }}>
+                  {feature.title}
+                </h4>
+                <p className="text-text-muted text-sm leading-relaxed font-light">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -149,15 +155,16 @@ export default function ServicesPage() {
       </section>
 
       {/* Services CTA */}
-      <section className="py-20 bg-[#0B132B] text-white text-center">
-        <div className="container-custom max-w-3xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: "var(--font-playfair)" }}>
+      <section className="py-24 bg-[#0B132B] text-white text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-accent/5 via-transparent to-accent/5 pointer-events-none" />
+        <div className="container-custom max-w-3xl mx-auto px-6 relative z-10">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style={{ fontFamily: "var(--font-playfair)" }}>
             Need Property Development or Management?
           </h2>
-          <p className="text-white/80 text-base mb-8 font-light">
+          <p className="text-white/80 text-base md:text-lg mb-8 font-light leading-relaxed">
             Whether you own a plot ready for joint-venture development or require executive property management for your multi-unit complex, our team is ready to assist.
           </p>
-          <Link href="/contact" className="btn-primary text-xs uppercase tracking-wider py-3.5 px-8">
+          <Link href="/contact" className="btn-primary text-xs uppercase tracking-widest py-4 px-9 shadow-xl">
             Schedule a Private Consultation
           </Link>
         </div>

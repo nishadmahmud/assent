@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import HeroSection from '@/app/components/HeroSection';
 import SectionHeading from '@/app/components/SectionHeading';
 import ProjectCard from '@/app/components/ProjectCard';
@@ -32,27 +33,27 @@ export default function ProjectsPage() {
           </div>
 
           {/* Interactive Project Blueprint Viewer */}
-          <div className="mt-10 reveal reveal-up">
+          <div className="mt-12 reveal reveal-up reveal-delay-200">
             <FloorPlanViewer />
           </div>
         </div>
       </section>
 
       {/* Project Portfolio Grid */}
-      <section className="section-padding bg-[#F8F9FA] border-t border-border">
+      <section className="section-padding bg-[#F8F9FA]/80 border-t border-border">
         <div className="container-custom">
           <div className="reveal reveal-up">
             <SectionHeading 
               label="Development Portfolio"
-              title="Active & Upcoming Developments"
-              subtitle="Explore our growing portfolio of residential towers and commercial properties."
+              title="Active &amp; Upcoming Developments"
+              subtitle="Explore our growing portfolio of residential towers and commercial properties engineered for lasting value."
               center={true}
             />
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
             {/* Project 1: Assent Royal Heights */}
-            <div className="reveal reveal-up" style={{ transitionDelay: "100ms" }}>
+            <div className="reveal reveal-up reveal-delay-100">
               <ProjectCard 
                 name="Assent Royal Heights"
                 location="Plot 104, 80' Wide Avenue, Prime Zone, Dhaka"
@@ -67,11 +68,12 @@ export default function ProjectsPage() {
                   "Separate Servant Suite with Bath"
                 ]}
                 imageUrl="/assent/project/tower-elevation.jpg"
+                blueprintHref="#flagship"
               />
             </div>
 
             {/* Project 2: Assent Panorama Residences */}
-            <div className="reveal reveal-up" style={{ transitionDelay: "200ms" }}>
+            <div className="reveal reveal-up reveal-delay-200">
               <ProjectCard 
                 name="Assent Panorama Residences"
                 location="Sector 11, Uttara, Dhaka"
@@ -85,11 +87,12 @@ export default function ProjectsPage() {
                   "Three-Tier 24/7 Security"
                 ]}
                 imageUrl="/assent/project/unit-a-plan.jpg"
+                blueprintHref="#flagship"
               />
             </div>
 
             {/* Project 3: Assent Commercial Centre */}
-            <div className="reveal reveal-up" style={{ transitionDelay: "300ms" }}>
+            <div className="reveal reveal-up reveal-delay-300">
               <ProjectCard 
                 name="Assent Commercial Centre"
                 location="Commercial Hub, Dhaka"
@@ -103,6 +106,7 @@ export default function ProjectsPage() {
                   "Full-Service Property Management"
                 ]}
                 imageUrl="/assent/project/ground-floor-parking.jpg"
+                blueprintHref="#flagship"
               />
             </div>
           </div>
@@ -110,21 +114,21 @@ export default function ProjectsPage() {
       </section>
 
       {/* Development Standards Banner */}
-      <section className="section-padding bg-white border-t border-border">
+      <section className="section-padding bg-white border-t border-border relative overflow-hidden">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center reveal reveal-up">
-            <span className="text-accent text-xs font-bold uppercase tracking-wider block mb-2">
-              Engineering & Building Standards
+            <span className="text-accent text-[11px] font-bold uppercase tracking-[0.2em] block mb-2">
+              Engineering &amp; Building Standards
             </span>
-            <h2 className="text-2xl md:text-3xl font-bold text-[#0B132B] mb-6" style={{ fontFamily: "var(--font-playfair)" }}>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0B132B] mb-6" style={{ fontFamily: "var(--font-playfair)" }}>
               Built for Longevity, Managed for Excellence
             </h2>
-            <p className="text-base text-text-muted leading-relaxed mb-8">
-              At Assent Real Estate & Property Management Ltd., every structural milestone undergoes rigorous multi-tier inspection. From soil-mechanics testing to certified reinforcement steel and eco-efficient thermal insulation, we engineer structures that safeguard your family and investment across generations.
+            <p className="text-base text-text-muted leading-relaxed font-light mb-8 max-w-2xl mx-auto">
+              At Assent Real Estate &amp; Property Management Ltd., every structural milestone undergoes rigorous multi-tier inspection. From soil-mechanics testing to certified reinforcement steel and eco-efficient thermal insulation, we engineer structures that safeguard your family and investment across generations.
             </p>
-            <a href="/contact" className="btn-primary text-xs uppercase tracking-wider py-3.5 px-8">
+            <Link href="/contact" className="btn-primary text-xs uppercase tracking-widest py-4 px-9 shadow-xl">
               Request Project Prospectus
-            </a>
+            </Link>
           </div>
         </div>
       </section>

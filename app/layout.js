@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollObserver from "./components/ScrollObserver";
+import FloatingConsultationPill from "./components/FloatingConsultationPill";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -49,8 +50,9 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col bg-white text-text">
         <ScrollObserver />
         <Navbar />
-        <main className="flex-1 pt-[76px]">{children}</main>
+        <main className="flex-1 pt-[72px]">{children}</main>
         <Footer />
+        <FloatingConsultationPill />
       </body>
     </html>
   );

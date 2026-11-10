@@ -11,35 +11,42 @@ const quickLinks = [
 
 const services = [
   "Real Estate Development",
-  "Property & Asset Management",
+  "Institutional Property Management",
   "Luxury Residential Construction",
   "Commercial Leasing & Operations",
-  "Feasibility & Legal Consultancy",
+  "Feasibility & Legal Advisory",
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0B132B] text-white border-t border-white/10">
-      {/* Main Footer */}
-      <div className="container-custom mx-auto section-padding pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+    <footer className="bg-[#0B132B] text-white border-t border-white/10 relative overflow-hidden">
+      {/* Background Architectural Ambient Glow & Grid */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent-gold/5 rounded-full blur-[120px] pointer-events-none" />
+
+      {/* Main Footer Container */}
+      <div className="container-custom mx-auto px-6 pt-20 pb-12 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10">
           {/* Company Brand Column */}
-          <div className="lg:col-span-4 reveal reveal-up" style={{ transitionDelay: "100ms" }}>
-            <div className="mb-6">
-              <Link href="/">
-                <AssentLogo isDark={true} />
-              </Link>
+          <div className="lg:col-span-4 flex flex-col justify-between">
+            <div>
+              <div className="mb-6">
+                <Link href="/" className="inline-block transition-transform duration-300 hover:scale-[1.01]">
+                  <AssentLogo isDark={true} />
+                </Link>
+              </div>
+              <p className="text-white/75 text-sm leading-relaxed mb-6 font-light max-w-sm">
+                Assent Real Estate &amp; Property Management Ltd. is dedicated to iconic architectural developments and institutional property care across Bangladesh, creating heirloom assets of lasting distinction.
+              </p>
             </div>
-            <p className="text-white/70 text-sm leading-relaxed mb-6 max-w-sm">
-              Assent Real Estate & Property Management Ltd. stands at the forefront of modern architectural development and professional asset stewardship in Bangladesh, building distinguished residences and preserving long-term property value.
-            </p>
+
             {/* Social Icons */}
-            <div className="flex gap-3">
+            <div className="flex gap-3 pt-2">
               {["facebook", "instagram", "linkedin", "youtube"].map((social) => (
                 <a
                   key={social}
                   href="#"
-                  className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent hover:text-[#0B132B] transition-colors"
+                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-accent hover:border-accent hover:text-[#0B132B] text-white/80 transition-all duration-300 shadow-sm"
                   aria-label={social}
                 >
                   <SocialIcon name={social} />
@@ -49,21 +56,22 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div className="lg:col-span-2 reveal reveal-up" style={{ transitionDelay: "200ms" }}>
+          <div className="lg:col-span-2">
             <h3
-              className="text-base font-bold mb-4 uppercase tracking-wider text-accent"
+              className="text-xs font-bold mb-5 uppercase tracking-[0.2em] text-accent"
               style={{ fontFamily: "var(--font-playfair)" }}
             >
               Navigation
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-white/70 text-sm hover:text-accent transition-colors"
+                    className="text-white/70 text-sm hover:text-accent transition-colors flex items-center gap-1.5 group"
                   >
-                    {link.name}
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent/40 group-hover:bg-accent transition-colors" />
+                    <span>{link.name}</span>
                   </Link>
                 </li>
               ))}
@@ -71,19 +79,19 @@ export default function Footer() {
           </div>
 
           {/* Core Services */}
-          <div className="lg:col-span-3 reveal reveal-up" style={{ transitionDelay: "300ms" }}>
+          <div className="lg:col-span-3">
             <h3
-              className="text-base font-bold mb-4 uppercase tracking-wider text-accent"
+              className="text-xs font-bold mb-5 uppercase tracking-[0.2em] text-accent"
               style={{ fontFamily: "var(--font-playfair)" }}
             >
-              Our Expertise
+              Our Capabilities
             </h3>
-            <ul className="space-y-2.5">
+            <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service}>
                   <Link
                     href="/services"
-                    className="text-white/70 text-sm hover:text-accent transition-colors block"
+                    className="text-white/70 text-sm hover:text-accent transition-colors block font-light"
                   >
                     {service}
                   </Link>
@@ -93,33 +101,43 @@ export default function Footer() {
           </div>
 
           {/* Contact Details */}
-          <div className="lg:col-span-3 reveal reveal-up" style={{ transitionDelay: "400ms" }}>
+          <div className="lg:col-span-3">
             <h3
-              className="text-base font-bold mb-4 uppercase tracking-wider text-accent"
+              className="text-xs font-bold mb-5 uppercase tracking-[0.2em] text-accent"
               style={{ fontFamily: "var(--font-playfair)" }}
             >
-              Headquarters
+              Headquarters &amp; Site
             </h3>
-            <div className="space-y-3.5 text-sm">
+            <div className="space-y-4 text-sm font-light">
               <div className="flex gap-3">
                 <MapPinIcon />
                 <div>
-                  <p className="text-white font-medium">Assent Vista Tower</p>
-                  <p className="text-white/70 text-xs mt-0.5">Suite 702, Level 7, Avenue 4, Block C, Banani, Dhaka-1213</p>
+                  <p className="text-white font-semibold text-xs tracking-wide uppercase">Assent Vista Tower</p>
+                  <p className="text-white/70 text-xs mt-0.5 leading-relaxed">
+                    Suite 702, Level 7, Avenue 4, Block C, Banani, Dhaka-1213
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-3">
+                <MapPinIcon />
+                <div>
+                  <p className="text-white font-semibold text-xs tracking-wide uppercase">Assent Royal Heights Site</p>
+                  <p className="text-white/70 text-xs mt-0.5 leading-relaxed">
+                    Facing 80&apos; Wide Avenue, Prime Zone, Dhaka
+                  </p>
                 </div>
               </div>
               <div className="flex gap-3 items-center">
                 <PhoneIcon />
-                <div className="text-white/70">
-                  <p>017**-******</p>
-                  <p>019**-******</p>
+                <div className="text-white/80 text-xs font-medium">
+                  <p>+880 1713 000 000</p>
                 </div>
               </div>
               <div className="flex gap-3 items-center">
                 <EmailIcon />
                 <a
                   href="mailto:info@assentrealestate.com"
-                  className="text-white/70 hover:text-accent transition-colors"
+                  className="text-white/80 text-xs hover:text-accent transition-colors font-medium"
                 >
                   info@assentrealestate.com
                 </a>
@@ -127,17 +145,40 @@ export default function Footer() {
             </div>
           </div>
         </div>
+
+        {/* Executive Private Inquiry Box */}
+        <div className="mt-14 p-6 md:p-8 rounded-2xl bg-white/[0.03] border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 backdrop-blur-sm">
+          <div>
+            <h4
+              className="text-lg md:text-xl font-bold text-white mb-1"
+              style={{ fontFamily: "var(--font-playfair)" }}
+            >
+              Request Confidential Project Prospectus
+            </h4>
+            <p className="text-white/70 text-xs md:text-sm font-light">
+              Receive full architectural blueprints, material schedules, and pricing directly to your inbox.
+            </p>
+          </div>
+          <Link
+            href="/contact"
+            className="btn-primary text-xs uppercase tracking-widest py-3 px-7 whitespace-nowrap shadow-lg shrink-0"
+          >
+            Connect With Advisors
+          </Link>
+        </div>
       </div>
 
       {/* Bottom Legal Bar */}
-      <div className="border-t border-white/10 reveal reveal-up" style={{ transitionDelay: "500ms" }}>
-        <div className="container-custom mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
+      <div className="border-t border-white/10 relative z-10">
+        <div className="container-custom mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50 font-light">
           <p>
-            © {new Date().getFullYear()} Assent Real Estate & Property Management Ltd. All rights reserved.
+            © {new Date().getFullYear()} Assent Real Estate &amp; Property Management Ltd. All rights reserved.
           </p>
-          <p>
-            Developed with excellence for discerning clients.
-          </p>
+          <div className="flex items-center gap-4">
+            <Link href="/about" className="hover:text-accent transition-colors">Privacy Policy</Link>
+            <span>•</span>
+            <Link href="/contact" className="hover:text-accent transition-colors">Terms of Stewardship</Link>
+          </div>
         </div>
       </div>
     </footer>
@@ -146,7 +187,7 @@ export default function Footer() {
 
 function MapPinIcon() {
   return (
-    <svg className="w-4 h-4 mt-1 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <svg className="w-4 h-4 mt-0.5 text-accent shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
     </svg>
